@@ -21,7 +21,12 @@ header {
 
 main {
   display: flex;
+}
 
+.left-side {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .new-activity-title {
@@ -29,12 +34,15 @@ main {
   font-family: "Montserrat", sans-serif;
   font-size: 19px;
   margin-left: 10px;
-  position: fixed;
 }
 
 .new-activity {
   background-color: #46424D;
+  height: 100%;
 }
+
+
+
 
 /* Main background: #2B2733
 Text on main background: #CBC9CF
