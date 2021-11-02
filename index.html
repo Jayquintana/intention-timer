@@ -15,7 +15,6 @@
       <div class="left-side">
         <h1 class="new-activity-title">New Activity</h1>
         <section class="new-activity">
-  
           <div class="button-categories">
             <h1 class="form-text-style">Select a category:</h1>
             <button class="study-button form-text-style category-button-style"><img class="category-button-icons" src="assets/study.svg" alt="lightbulb image"><br>Study</button>
@@ -23,19 +22,25 @@
             <button class="study-button form-text-style category-button-style"><img class="category-button-icons" src="assets/exercise.svg" alt="shoe image"><br>Exercise</button>
           </div>
           <form>
-            <label class="form-text-style" for="accomplish">What would you like to accomplish during this time?</label>
-            <input type="text" name="accomplish">
-            <label class="form-text-style" for="minutes">Minutes</label>
-            <input type="text" name="minutes">
-            <label class="form-text-style" for="seconds">Seconds</label>
-            <input type="text" name="seconds">
+            <label class="form-text-style" for="accomplish">What would you like to accomplish during this time?</label> <br>
+            <input class="accomplish-input"  type="text" name="accomplish"> <br>
+            <div class="minutes-seconds-container">
+              <div class="minutes-input-label">
+                <label class="form-text-style" for="minutes">Minutes</label> <br>
+                <input type="text" class="minutes-input" name="minutes">
+              </div>
+              <div class="seconds-input-label">
+                <label class="form-text-style" for="seconds">Seconds</label> <br>
+                <input type="text" class="seconds-input" name="seconds">
+              </div>
+            </div>
             <button class="start-activity-button">START ACTIVITY</button>
           </form>
         </section>
       </div>
       <section class="past-activities">
-        <h1>Past Activities</h1>
-        <p>You haven't logged any activities yet. Complete the form to the left to get started!</p>
+        <h1 class="past-activities-title">Past Activities</h1>
+        <p class="no-activity-message">You haven't logged any activities yet. Complete the form to the left to get started!</p>
       </section>
     </main>
     <script src="Activity.js"></script>
