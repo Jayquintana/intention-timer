@@ -57,13 +57,18 @@ main {
   width: 93%;
   margin-bottom: 5%;
   border-radius: 5px;
+  padding: 80px;
+  box-sizing: border-box;
+
 }
 
 .button-categories {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   height: 33%;
   align-items: center;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .past-activities {
@@ -81,7 +86,18 @@ main {
   font-size: 16px;
 }
 
-.button-style
+.category-button-style {
+  background: none;
+  border: 2px solid #FFF;
+  border-radius: 5px;
+  height: 100px;
+  width: 181px;
+}
+
+.category-button-icons {
+  height: 46px;
+  width: 46px;
+}
 
 /* Main background: #2B2733
 Text on main background: #CBC9CF
