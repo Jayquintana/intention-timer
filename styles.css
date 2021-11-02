@@ -15,7 +15,7 @@ header {
   height: 5%;
   background-color: #46424D;
   font-family: "Montserrat";
-  color: #CBC9CF;
+  color: #FFF;
   text-align: center;
   padding: 10px;
 }
@@ -75,8 +75,13 @@ main {
   font-family: "Montserrat", sans-serif;
 }
 
+.form-text-style {
+  font-family: "Montserrat", sans-serif;
+  color: #FFF;
+  font-size: 16px;
+}
 
-
+.button-style
 
 /* Main background: #2B2733
 Text on main background: #CBC9CF
