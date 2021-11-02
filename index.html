@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <title>Intention Timer</title>
+  </head>
+  <body>
+    <header>
+      <h2 class="page-title">INTENTION TIMER</h2>
+    </header>
+    <main>
+      <div class="left-side">
+        <h1 class="new-activity-title">New Activity</h1>
+        <section class="new-activity">
+          <div class="button-categories">
+            <h1 class="form-text-style">Select a category:</h1>
+            <button class="study-button form-text-style category-button-style"><img class="category-button-icons" src="assets/study.svg" alt="lightbulb image"><br>Study</button>
+            <button class="mediate-button form-text-style category-button-style"><img class="category-button-icons" src="assets/meditate.svg" alt="flower image"><br>Meditate</button>
+            <button class="study-button form-text-style category-button-style"><img class="category-button-icons" src="assets/exercise.svg" alt="shoe image"><br>Exercise</button>
+          </div>
+          <form>
+            <label class="form-text-style" for="accomplish">What would you like to accomplish during this time?</label> <br>
+            <input class="accomplish-input"  type="text" name="accomplish"> <br>
+            <div class="minutes-seconds-container">
+              <div class="minutes-input-label">
+                <label class="form-text-style" for="minutes">Minutes</label> <br>
+                <input type="text" class="minutes-input" name="minutes">
+              </div>
+              <div class="seconds-input-label">
+                <label class="form-text-style" for="seconds">Seconds</label> <br>
+                <input type="text" class="seconds-input" name="seconds">
+              </div>
+            </div>
+            <button class="start-activity-button">START ACTIVITY</button>
+          </form>
+        </section>
+      </div>
+      <section class="past-activities">
+        <h1 class="past-activities-title">Past Activities</h1>
+        <p class="no-activity-message">You haven't logged any activities yet. Complete the form to the left to get started!</p>
+      </section>
+    </main>
+    <script src="Activity.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
