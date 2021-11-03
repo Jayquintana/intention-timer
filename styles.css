@@ -115,6 +115,25 @@ main {
   width: 25px;
 }
 
+.category-button-style > * {
+  pointer-events: none;
+}
+
+.study-button-active {
+  color: #B3FD78;
+  border-color: #B3FD78;
+}
+
+.meditate-button-active {
+  color: #C278FD;
+  border-color: #C278FD;
+}
+
+.exercise-button-active {
+  color: #FD8078;
+  border-color: #FD8078;
+}
+
 input {
   color: #CBC9CF;
   border: none;
