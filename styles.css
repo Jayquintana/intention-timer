@@ -114,11 +114,16 @@ input {
 }
 
 .category-button-style {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background: none;
   border: 2px solid #FFF;
   border-radius: 5px;
   height: 70px;
   width: 181px;
+
 }
 
 .category-button-icons {
