@@ -1,5 +1,5 @@
 //global variables
-var invalidKeys = ['-', '+', 'e', 'E'];
+var invalidKeys = ['-', '+', 'e', 'E', '.'];
 // querySelectors
 
 //buttons
@@ -12,7 +12,8 @@ var startActivityButton = document.querySelector('.start-activity-button');
 var accomplishInput = document.querySelector('.accomplish-input');
 var minutesInput = document.querySelector('.minutes-input');
 var secondsInput = document.querySelector('.seconds-input');
-var inputs = document.querySelectorAll('.accomplish-input', '.minutes-input', '.seconds-input' );
+var inputs = document.querySelectorAll('input');
+var errorMessages = document.querySelectorAll('.error-message');
 
 //function that adds class with new style
 
@@ -28,9 +29,7 @@ exerciseButton.addEventListener('click', function(event) {
   hightlightButton(event);
 });
 
-startActivityButton.addEventListener('click', function(event) {
-  displayErrorMessage(event);
-});
+startActivityButton.addEventListener('click', displayErrorMessage);
 
 minutesInput.addEventListener('keydown', preventEInput)
 secondsInput.addEventListener('keydown', preventEInput);
@@ -55,17 +54,13 @@ function preventEInput(event) {
   }
 }
 
-//gather a list of input values
-//go through the list:
-  //if input is empty
-  --> //return error message for specific inputs
-      //
-
-function displayErrorMessage(event) {
+function displayErrorMessage() {
   event.preventDefault();
   for (var i = 0; i < inputs.length; i++) {
     if (!inputs[i].value) {
-      getErrorMessage(i);
+      errorMessages[i].classList.remove('hidden');
+    } else if (inputs[i].value) {
+      errorMessages[i].classList.add('hidden');
     }
   }
 }
