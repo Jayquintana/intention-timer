@@ -21,6 +21,10 @@ body {
   background-color: #2B2733;
 }
 
+.hidden {
+  display: none;
+}
+
 header {
   height: 5%;
   background-color: #46424D;
@@ -113,6 +117,22 @@ main {
 .category-button-icons {
   height: 25px;
   width: 25px;
+}
+
+.error-message {
+  color: #EFB7EC;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+.error-image {
+  height: 16px;
+  width: 16px;
+}
+
+.input-error-border {
+  border-color: #EFB7EC;
 }
 
 .category-button-style > * {
