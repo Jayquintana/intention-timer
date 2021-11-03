@@ -1,5 +1,6 @@
 //global variables
 var invalidKeys = ['-', '+', 'e', 'E', '.'];
+var activites = [];
 // querySelectors
 
 //buttons
@@ -14,6 +15,7 @@ var minutesInput = document.querySelector('.minutes-input');
 var secondsInput = document.querySelector('.seconds-input');
 var inputs = document.querySelectorAll('input');
 var errorMessages = document.querySelectorAll('.error-message');
+var categoryButtons = document.querySelectorAll('.category-button-style');
 
 //function that adds class with new style
 
@@ -29,11 +31,17 @@ exerciseButton.addEventListener('click', function(event) {
   hightlightButton(event);
 });
 
-startActivityButton.addEventListener('click', displayErrorMessage);
 
-minutesInput.addEventListener('keydown', preventEInput)
+startActivityButton.addEventListener('click', function() {
+  displayErrorMessage();
+  createActivity(category);
+});
+
+minutesInput.addEventListener('keydown', preventEInput);
 secondsInput.addEventListener('keydown', preventEInput);
 
+
+var category;
 
 function hightlightButton(event) {
   if (event.target.classList.contains('study-button')) {
@@ -46,6 +54,7 @@ function hightlightButton(event) {
     event.target.classList.add('exercise-button-active');
     buttonImages[2].src = 'assets/exercise-active.svg';
   }
+  category = event.target.innerText;
 }
 
 function preventEInput(event) {
@@ -56,11 +65,23 @@ function preventEInput(event) {
 
 function displayErrorMessage() {
   event.preventDefault();
+  var formFilled = 0;
   for (var i = 0; i < inputs.length; i++) {
     if (!inputs[i].value) {
       errorMessages[i].classList.remove('hidden');
     } else if (inputs[i].value) {
       errorMessages[i].classList.add('hidden');
+      formFilled++;
     }
   }
+  console.log(formFilled);
+  return formFilled;
+}
+
+
+function createActivity(category) {
+  if (displayErrorMessage() === 3) {
+    var newActivity = new Activity(category, accomplishInput.value, minutesInput.value, secondsInput.value);
+  }
+
 }
