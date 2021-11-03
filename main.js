@@ -1,5 +1,5 @@
 //global variables
-var invalidKeys = ['-', '+', 'e'];
+var invalidKeys = ['-', '+', 'e', 'E'];
 // querySelectors
 
 //buttons
