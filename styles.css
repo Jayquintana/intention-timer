@@ -8,6 +8,7 @@ Meditate: #C278FD
 Exercise: #FD8078
 Error: #EFB7EC */
 
+/* page and HTML elements */
 * {
   margin: 0;
 }
@@ -34,16 +35,32 @@ header {
   padding: 10px;
 }
 
-.page-title {
-  font-size: 20px;
-  margin: 0.5% auto;
-}
-
 main {
   height: inherit;
   display: flex;
 }
 
+form {
+  height: 40%;
+  width: 100%;
+}
+
+input {
+  color: #CBC9CF;
+  border: none;
+  background-color: #46424D;
+  border-bottom: 2px solid  #CBC9CF;
+  margin-top: 5%;
+  text-align: justify;
+}
+
+/* Header / title */
+.page-title {
+  font-size: 20px;
+  margin: 0.5% auto;
+}
+
+/* New Activity section / left side */
 .left-side {
   display: flex;
   flex-grow: 4;
@@ -77,25 +94,6 @@ main {
   justify-content: space-around;
 }
 
-.button-categories {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.past-activities {
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
-  align-items: flex-start;
-  border-left: 3px solid #46424D;
-  color: #CBC9CF;
-  font-family: "Montserrat", sans-serif;
-  width: 25%;
-}
 
 .form-text-style {
   font-family: "Montserrat", sans-serif;
@@ -104,6 +102,15 @@ main {
   align-self: flex-start;
   width: 100%;
   margin-bottom: 20px;
+}
+/* form buttons */
+.button-categories {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .category-button-style {
@@ -154,20 +161,8 @@ main {
   border-color: #FD8078;
 }
 
-input {
-  color: #CBC9CF;
-  border: none;
-  background-color: #46424D;
-  border-bottom: 2px solid  #CBC9CF;
-  margin-top: 5%;
-  text-align: justify;
-}
 
-form {
-  height: 40%;
-  width: 100%;
-}
-
+/* form inputs/labels */
 .accomplish-input {
   width: 100%;
 }
@@ -177,6 +172,28 @@ form {
   width: 100%;
 }
 
+.minutes-seconds-container {
+  height: 20%;
+  margin: 10% auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.minutes-input-label,
+.seconds-input-label {
+  width: 40%;
+}
+/* Past activitys section / right side */
+.past-activities {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  border-left: 3px solid #46424D;
+  color: #CBC9CF;
+  font-family: "Montserrat", sans-serif;
+  width: 25%;
+}
 
 .past-activities {
   display: flex;
@@ -195,16 +212,4 @@ form {
   text-align: center;
   box-sizing: border-box;
   padding: 5% 20% 0% 20%;
-}
-
-.minutes-seconds-container {
-  height: 20%;
-  margin: 10% auto;
-  display: flex;
-  justify-content: space-between;
-}
-
-.minutes-input-label,
-.seconds-input-label {
-  width: 40%;
 }
