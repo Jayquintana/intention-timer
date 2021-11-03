@@ -24,14 +24,17 @@
           <form>
             <label class="form-text-style" for="accomplish">What would you like to accomplish during this time?</label> <br>
             <input class="accomplish-input"  type="text" name="accomplish"> <br>
+            <p class="error-message hidden"><img class="error-image" src="assets/warning.svg" alt="error icon"> A description is required.</p>
             <div class="minutes-seconds-container">
               <div class="minutes-input-label">
                 <label class="form-text-style" for="minutes">Minutes</label> <br>
                 <input type="number" class="minutes-input" name="minutes">
+                <p class="error-message hidden"><img class="error-image" src="assets/warning.svg" alt="error icon"> Minutes are required.</p>
               </div>
               <div class="seconds-input-label">
                 <label class="form-text-style" for="seconds">Seconds</label> <br>
                 <input type="number" class="seconds-input" name="seconds">
+                <p class="error-message hidden"><img class="error-image" src="assets/warning.svg" alt="error icon"> Seconds are required.</p>
               </div>
             </div>
             <button class="start-activity-button">START ACTIVITY</button>
