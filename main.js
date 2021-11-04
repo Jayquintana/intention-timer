@@ -9,13 +9,20 @@ var meditateButton = document.querySelector('.meditate-button');
 var exerciseButton = document.querySelector('.exercise-button');
 var buttonImages = document.querySelectorAll('.category-button-icons');
 var startActivityButton = document.querySelector('.start-activity-button');
+var startTimerButton = document.querySelector('.start-timer-button')
+var categoryButtons = document.querySelectorAll('.category-button-style');
 //inputs
 var accomplishInput = document.querySelector('.accomplish-input');
 var minutesInput = document.querySelector('.minutes-input');
 var secondsInput = document.querySelector('.seconds-input');
 var inputs = document.querySelectorAll('input');
 var errorMessages = document.querySelectorAll('.error-message');
-var categoryButtons = document.querySelectorAll('.category-button-style');
+var newActivityTitle = document.querySelector('.new-activity-title');
+var timerCountdown = document.querySelector('.timer-countdown');
+var newActivitySection = document.querySelector('.new-activity');
+var currentActivitySection = document.querySelector('.current-activity');
+var intentionActivityTitle = document.querySelector('.intention-activity-title')
+
 
 //function that adds class with new style
 
@@ -32,10 +39,7 @@ exerciseButton.addEventListener('click', function(event) {
 });
 
 
-startActivityButton.addEventListener('click', function() {
-  displayErrorMessage();
-  createActivity(category);
-});
+startActivityButton.addEventListener('click', startActivity);
 
 minutesInput.addEventListener('keydown', preventEInput);
 secondsInput.addEventListener('keydown', preventEInput);
@@ -78,10 +82,44 @@ function displayErrorMessage() {
   return formFilled;
 }
 
+function startActivity() {
+  displayErrorMessage();
+  if (displayErrorMessage() === 3) {
+    createActivity(category);
+    displayCurrentActivity();
+  }
+}
 
 function createActivity(category) {
-  if (displayErrorMessage() === 3) {
-    var newActivity = new Activity(category, accomplishInput.value, minutesInput.value, secondsInput.value);
-  }
+  var newActivity = new Activity(category, accomplishInput.value, minutesInput.value, secondsInput.value);
+}
 
+function hideElement(element) {
+  element.classList.add('hidden');
+}
+
+function showElement(element) {
+  element.classList.remove('hidden');
+}
+
+function changeText(element, newText) {
+  element.innerText = `${newText}`;
+}
+
+function setTimer() {
+  timerCountdown.innerText = `${minutesInput.value}:${secondsInput.value}`
+}
+
+function changeStartButtonStyle(intentionCategory) {
+  intentionCategory = intentionCategory.toLowerCase();
+  startTimerButton.classList.add(`start-${intentionCategory}-timer`);
+}
+
+function displayCurrentActivity() {
+  hideElement(newActivitySection);
+  showElement(currentActivitySection);
+  changeText(newActivityTitle, 'Current Activity');
+  setTimer();
+  changeStartButtonStyle(category);
+  changeText(intentionActivityTitle, accomplishInput.value);
 }
