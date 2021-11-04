@@ -48,17 +48,9 @@ secondsInput.addEventListener('keydown', preventEInput);
 
 
 function hightlightButton(event) {
-  if (event.target.classList.contains('study-button')) {
-    event.target.classList.add('study-button-active');
-    buttonImages[0].src = 'assets/study-active.svg';
-  } else if (event.target.classList.contains('meditate-button')) {
-    event.target.classList.add('meditate-button-active');
-    buttonImages[1].src = 'assets/meditate-active.svg';
-  } else if (event.target.classList.contains('exercise-button')) {
-    event.target.classList.add('exercise-button-active');
-    buttonImages[2].src = 'assets/exercise-active.svg';
-  }
-  category = event.target.innerText;
+    category = event.target.innerText.toLowerCase()
+    event.target.classList.add(`${category}-button-active`)
+    event.target.children[0].attributes[1].value = `assets/${category}-active.svg`
 }
 
 function preventEInput(event) {
@@ -110,7 +102,6 @@ function setTimer() {
 }
 
 function changeStartButtonStyle(intentionCategory) {
-  intentionCategory = intentionCategory.toLowerCase();
   startTimerButton.classList.add(`start-${intentionCategory}-timer`);
 }
 
