@@ -22,10 +22,6 @@ body {
   background-color: #2B2733;
 }
 
-.hidden {
-  display: none;
-}
-
 header {
   height: 5%;
   background-color: #46424D;
@@ -80,7 +76,8 @@ input {
   margin-bottom: 2.5%;
 }
 
-.new-activity {
+.new-activity,
+.current-activity {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -217,4 +214,60 @@ input {
   text-align: center;
   box-sizing: border-box;
   padding: 5% 20% 0% 20%;
+}
+
+/* current activity section / timer */
+.timer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.deep-breathing-title {
+  color: #CBC9CF;
+  font-family: "Montserrat";
+  font-size: 25px;
+}
+
+.timer-countdown {
+  font-size: 100px;
+  color: #FFF;
+  font-family: "Montserrat";
+  font-weight: 700;
+}
+
+.start-timer-button {
+  height: 250px;
+  width: 250px;
+  border-radius: 150px;
+  background: none;
+  border: 3px solid #C278FD;
+  font-family: "Montserrat";
+  color: #FFF;
+  font-size: 25px;
+}
+
+.start-study-timer {
+border: 3px solid #B3FD78;
+}
+
+.start-meditate-timer {
+  border: 3px solid #C278FD;
+}
+
+.start-exercise-timer {
+  border: 3px solid #FD8078;
+}
+
+.log-activity-button {
+  height: 40px;
+  width: 250px;
+  font-size: 15px;
+  color: #46424D;
+  font-family: "Montserrat";
+}
+
+.hidden {
+  display: none;
 }
