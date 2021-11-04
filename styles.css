@@ -244,8 +244,16 @@ input {
   font-size: 25px;
 }
 
-.start-timer-study {
+.start-study-timer {
+border: 3px solid #B3FD78;
+}
 
+.start-meditate-timer {
+  border: 3px solid #C278FD;
+}
+
+.start-exercise-timer {
+  border: 3px solid #FD8078;
 }
 
 .log-activity-button {
@@ -255,8 +263,6 @@ input {
   color: #46424D;
   font-family: "Montserrat";
 }
-
-
 
 .hidden {
   display: none;
