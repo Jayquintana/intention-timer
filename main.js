@@ -1,5 +1,7 @@
 //global variables
+var category;
 var invalidKeys = ['-', '+', 'e', 'E', '.'];
+var activites = [];
 // querySelectors
 
 //buttons
@@ -8,12 +10,20 @@ var meditateButton = document.querySelector('.meditate-button');
 var exerciseButton = document.querySelector('.exercise-button');
 var buttonImages = document.querySelectorAll('.category-button-icons');
 var startActivityButton = document.querySelector('.start-activity-button');
+var startTimerButton = document.querySelector('.start-timer-button');
+var categoryButtons = document.querySelectorAll('.category-button-style');
 //inputs
 var accomplishInput = document.querySelector('.accomplish-input');
 var minutesInput = document.querySelector('.minutes-input');
 var secondsInput = document.querySelector('.seconds-input');
 var inputs = document.querySelectorAll('input');
 var errorMessages = document.querySelectorAll('.error-message');
+var newActivityTitle = document.querySelector('.new-activity-title');
+var timerCountdown = document.querySelector('.timer-countdown');
+var newActivitySection = document.querySelector('.new-activity');
+var currentActivitySection = document.querySelector('.current-activity');
+var intentionActivityTitle = document.querySelector('.intention-activity-title');
+
 
 //function that adds class with new style
 
@@ -29,10 +39,12 @@ exerciseButton.addEventListener('click', function(event) {
   hightlightButton(event);
 });
 
-startActivityButton.addEventListener('click', displayErrorMessage);
 
-minutesInput.addEventListener('keydown', preventEInput)
+startActivityButton.addEventListener('click', startActivity);
+
+minutesInput.addEventListener('keydown', preventEInput);
 secondsInput.addEventListener('keydown', preventEInput);
+
 
 
 function hightlightButton(event) {
@@ -46,6 +58,7 @@ function hightlightButton(event) {
     event.target.classList.add('exercise-button-active');
     buttonImages[2].src = 'assets/exercise-active.svg';
   }
+  category = event.target.innerText;
 }
 
 function preventEInput(event) {
@@ -56,11 +69,56 @@ function preventEInput(event) {
 
 function displayErrorMessage() {
   event.preventDefault();
+  var formFilled = 0;
   for (var i = 0; i < inputs.length; i++) {
     if (!inputs[i].value) {
       errorMessages[i].classList.remove('hidden');
     } else if (inputs[i].value) {
       errorMessages[i].classList.add('hidden');
+      formFilled++;
     }
   }
+  return formFilled;
+}
+
+function startActivity() {
+  displayErrorMessage();
+  if (displayErrorMessage() === 3) {
+    createActivity(category);
+    displayCurrentActivity();
+  }
+}
+
+function createActivity(category) {
+  var newActivity = new Activity(category, accomplishInput.value, minutesInput.value, secondsInput.value);
+}
+
+function hideElement(element) {
+  element.classList.add('hidden');
+}
+
+function showElement(element) {
+  element.classList.remove('hidden');
+}
+
+function changeText(element, newText) {
+  element.innerText = `${newText}`;
+}
+
+function setTimer() {
+  timerCountdown.innerText = `${minutesInput.value}:${secondsInput.value}`;
+}
+
+function changeStartButtonStyle(intentionCategory) {
+  intentionCategory = intentionCategory.toLowerCase();
+  startTimerButton.classList.add(`start-${intentionCategory}-timer`);
+}
+
+function displayCurrentActivity() {
+  hideElement(newActivitySection);
+  showElement(currentActivitySection);
+  changeText(newActivityTitle, 'Current Activity');
+  setTimer();
+  changeStartButtonStyle(category);
+  changeText(intentionActivityTitle, accomplishInput.value);
 }
