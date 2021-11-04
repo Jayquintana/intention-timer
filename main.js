@@ -1,4 +1,5 @@
 //global variables
+var category;
 var invalidKeys = ['-', '+', 'e', 'E', '.'];
 var activites = [];
 // querySelectors
@@ -9,7 +10,7 @@ var meditateButton = document.querySelector('.meditate-button');
 var exerciseButton = document.querySelector('.exercise-button');
 var buttonImages = document.querySelectorAll('.category-button-icons');
 var startActivityButton = document.querySelector('.start-activity-button');
-var startTimerButton = document.querySelector('.start-timer-button')
+var startTimerButton = document.querySelector('.start-timer-button');
 var categoryButtons = document.querySelectorAll('.category-button-style');
 //inputs
 var accomplishInput = document.querySelector('.accomplish-input');
@@ -21,7 +22,7 @@ var newActivityTitle = document.querySelector('.new-activity-title');
 var timerCountdown = document.querySelector('.timer-countdown');
 var newActivitySection = document.querySelector('.new-activity');
 var currentActivitySection = document.querySelector('.current-activity');
-var intentionActivityTitle = document.querySelector('.intention-activity-title')
+var intentionActivityTitle = document.querySelector('.intention-activity-title');
 
 
 //function that adds class with new style
@@ -45,7 +46,6 @@ minutesInput.addEventListener('keydown', preventEInput);
 secondsInput.addEventListener('keydown', preventEInput);
 
 
-var category;
 
 function hightlightButton(event) {
   if (event.target.classList.contains('study-button')) {
@@ -78,7 +78,6 @@ function displayErrorMessage() {
       formFilled++;
     }
   }
-  console.log(formFilled);
   return formFilled;
 }
 
@@ -107,7 +106,7 @@ function changeText(element, newText) {
 }
 
 function setTimer() {
-  timerCountdown.innerText = `${minutesInput.value}:${secondsInput.value}`
+  timerCountdown.innerText = `${minutesInput.value}:${secondsInput.value}`;
 }
 
 function changeStartButtonStyle(intentionCategory) {
