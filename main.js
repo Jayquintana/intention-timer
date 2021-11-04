@@ -48,9 +48,9 @@ secondsInput.addEventListener('keydown', preventEInput);
 
 
 function hightlightButton(event) {
-    category = event.target.innerText.toLowerCase()
-    event.target.classList.add(`${category}-button-active`)
-    event.target.children[0].attributes[1].value = `assets/${category}-active.svg`
+    category = event.target.innerText.toLowerCase();
+    event.target.classList.add(`${category}-button-active`);
+    event.target.children[0].attributes[1].value = `assets/${category}-active.svg`;
 }
 
 function preventEInput(event) {
