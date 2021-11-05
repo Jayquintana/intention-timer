@@ -314,15 +314,25 @@ border: 3px solid #B3FD78;
 
 .card-color-indicator {
   height: 30px;
-  width: 1%;
+  width: 5px;
   margin-right: 10px;
   margin-top: 10px;
   background-color: #C278FD;
   border-radius: 6px;
   border: none;
-
 }
 
+.meditate-color-indicator {
+  background-color: #C278FD;
+}
+
+.study-color-indicator {
+  background-color: #B3FD78;
+}
+
+.exercise-color-indicator {
+  background-color: #FD8078;
+}
 
 .hidden {
   display: none;
