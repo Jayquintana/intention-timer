@@ -268,6 +268,62 @@ border: 3px solid #B3FD78;
   font-family: "Montserrat";
 }
 
+/* activity cards */
+
+.activity-card-box {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 90%;
+}
+
+.past-activity-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 5%;
+  margin-left: 2%;
+}
+
+.card-category-title,
+.card-duration-title,
+.card-accomplish-title{
+  margin-left: 2%;
+}
+
+.card-category-title {
+  margin-top: 10px;
+  font-size: 15px;
+  color: #FFF;
+}
+
+.card-accomplish-title {
+  margin-top: 10px;
+}
+
+.card-title-box {
+  width: 80%;
+}
+
+.past-activity-card {
+  background-color:#46424D;
+  width: 90%;
+  height: 13%;
+  border-radius: 6px;
+}
+
+.card-color-indicator {
+  height: 30px;
+  width: 1%;
+  margin-right: 10px;
+  margin-top: 10px;
+  background-color: #C278FD;
+  border-radius: 6px;
+  border: none;
+
+}
+
+
 .hidden {
   display: none;
 }
