@@ -1,7 +1,7 @@
 //global variables
 var category;
 var invalidKeys = ['-', '+', 'e', 'E', '.'];
-var activites = [];
+var activities = [];
 // querySelectors
 
 //buttons
@@ -39,13 +39,16 @@ exerciseButton.addEventListener('click', function(event) {
   hightlightButton(event);
 });
 
-
 startActivityButton.addEventListener('click', startActivity);
+
+startTimerButton.addEventListener('click', getActivity);
 
 minutesInput.addEventListener('keydown', preventEInput);
 secondsInput.addEventListener('keydown', preventEInput);
 
-
+function getActivity() {
+  activities[activities.length - 1].startTimer();
+}
 
 function hightlightButton(event) {
     category = event.target.innerText.toLowerCase();
@@ -83,6 +86,7 @@ function startActivity() {
 
 function createActivity(category) {
   var newActivity = new Activity(category, accomplishInput.value, minutesInput.value, secondsInput.value);
+  activities.push(newActivity);
 }
 
 function hideElement(element) {
