@@ -18,8 +18,12 @@ var accomplishInput = document.querySelector('.accomplish-input');
 var minutesInput = document.querySelector('.minutes-input');
 var secondsInput = document.querySelector('.seconds-input');
 var inputs = document.querySelectorAll('input');
-var newActivitySection = document.querySelector('.new-activity');
+
+// sections
 var currentActivitySection = document.querySelector('.current-activity');
+var newActivitySection = document.querySelector('.new-activity');
+var pastActivitiesSection = document.querySelector('.past-activities')
+
 //titles
 var timerCountdown = document.querySelector('.timer-countdown');
 var errorMessages = document.querySelectorAll('.error-message');
@@ -49,6 +53,7 @@ startTimerButton.addEventListener('click', getActivity);
 
 minutesInput.addEventListener('keydown', preventEInput);
 secondsInput.addEventListener('keydown', preventEInput);
+// logActivityButton.addEventListener('click', )
 
 //reusable functions
 function hideElement(element) {
@@ -114,6 +119,12 @@ function displayCompleteMessage() {
   showElement(activityCompletedTitle);
 }
 
+function createActivityLogs() {
+  pastActivitiesSection.innerHTML = '';
+  for (var i = 0; i < activities.length; i++)  {
+    pastActivitiesSection.innerHTML += ``
+  }
+}
 
 function setTimer() {
   timerCountdown.innerText = `${minutesInput.value}:${secondsInput.value}`;
