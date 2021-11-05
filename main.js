@@ -12,17 +12,21 @@ var buttonImages = document.querySelectorAll('.category-button-icons');
 var startActivityButton = document.querySelector('.start-activity-button');
 var startTimerButton = document.querySelector('.start-timer-button');
 var categoryButtons = document.querySelectorAll('.category-button-style');
+var logActivityButton = document.querySelector('.log-activity-button');
 //inputs
 var accomplishInput = document.querySelector('.accomplish-input');
 var minutesInput = document.querySelector('.minutes-input');
 var secondsInput = document.querySelector('.seconds-input');
 var inputs = document.querySelectorAll('input');
-var errorMessages = document.querySelectorAll('.error-message');
-var newActivityTitle = document.querySelector('.new-activity-title');
-var timerCountdown = document.querySelector('.timer-countdown');
 var newActivitySection = document.querySelector('.new-activity');
 var currentActivitySection = document.querySelector('.current-activity');
+//titles
+var timerCountdown = document.querySelector('.timer-countdown');
+var errorMessages = document.querySelectorAll('.error-message');
+var newActivityTitle = document.querySelector('.new-activity-title');
 var intentionActivityTitle = document.querySelector('.intention-activity-title');
+var activityCompletedTitle = document.querySelector('.activity-complete-title')
+
 
 
 //function that adds class with new style
@@ -46,10 +50,24 @@ startTimerButton.addEventListener('click', getActivity);
 minutesInput.addEventListener('keydown', preventEInput);
 secondsInput.addEventListener('keydown', preventEInput);
 
+//reusable functions
+function hideElement(element) {
+  element.classList.add('hidden');
+}
+
+function showElement(element) {
+  element.classList.remove('hidden');
+}
+
+function changeText(element, newText) {
+  element.innerText = `${newText}`;
+}
+
 function getActivity() {
   activities[activities.length - 1].startTimer();
 }
 
+//functions
 function hightlightButton(event) {
     category = event.target.innerText.toLowerCase();
     event.target.classList.add(`${category}-button-active`);
@@ -89,17 +107,13 @@ function createActivity(category) {
   activities.push(newActivity);
 }
 
-function hideElement(element) {
-  element.classList.add('hidden');
+function displayCompleteMessage() {
+  hideElement(startTimerButton);
+  hideElement(timerCountdown);
+  showElement(logActivityButton);
+  showElement(activityCompletedTitle);
 }
 
-function showElement(element) {
-  element.classList.remove('hidden');
-}
-
-function changeText(element, newText) {
-  element.innerText = `${newText}`;
-}
 
 function setTimer() {
   timerCountdown.innerText = `${minutesInput.value}:${secondsInput.value}`;
