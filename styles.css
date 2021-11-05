@@ -223,7 +223,8 @@ input {
   justify-content: center;
 }
 
-.intention-activity-title {
+.intention-activity-title,
+.activity-complete-title {
   color: #CBC9CF;
   font-family: "Montserrat";
   font-size: 25px;
