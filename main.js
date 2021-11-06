@@ -129,17 +129,15 @@ function createActivityLogs() {
   for (var i = 0; i < activities.length; i++)  {
     if (activities[i].completed) {
     activityCardSection.innerHTML += `
-    <div class="activity-card-box">
-      <article class="past-activity-card">
-        <div class="card-title-box">
-          <h5 class="card-category-title">${activities[i].category}</h5>
-          <p class="card-duration-title">${activities[i].minutes} MIN ${activities[i].seconds} SECONDS</p>
-          <p class="card-accomplish-title">${activities[i].description}</p>
-        </div>
-        <span class="card-color-indicator ${activities[i].category}-color-indicator">
-        </span>
-      </article>
-    </div>`
+    <article class="past-activity-card">
+      <div class="card-title-box">
+        <h5 class="card-category-title">${activities[i].category}</h5>
+        <p class="card-duration-title">${activities[i].minutes} MIN ${activities[i].seconds} SECONDS</p>
+        <p class="card-accomplish-title">${activities[i].description}</p>
+      </div>
+      <span class="card-color-indicator ${activities[i].category}-color-indicator">
+      </span>
+    </article>`
     }
   }
 }
