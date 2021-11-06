@@ -13,6 +13,8 @@ var startActivityButton = document.querySelector('.start-activity-button');
 var startTimerButton = document.querySelector('.start-timer-button');
 var categoryButtons = document.querySelectorAll('.category-button-style');
 var logActivityButton = document.querySelector('.log-activity-button');
+var createNewActivityButton = document.querySelector('.create-new-activity-button');
+
 //inputs
 var accomplishInput = document.querySelector('.accomplish-input');
 var minutesInput = document.querySelector('.minutes-input');
@@ -23,8 +25,8 @@ var inputs = document.querySelectorAll('input');
 var currentActivitySection = document.querySelector('.current-activity');
 var newActivitySection = document.querySelector('.new-activity');
 var pastActivitiesSection = document.querySelector('.past-activities');
-var activityCardSection = document.querySelector('.activity-card-section')
-
+var activityCardSection = document.querySelector('.activity-card-section');
+var completedActivitySection = document.querySelector('.completed-activity-section');
 
 //titles
 var timerCountdown = document.querySelector('.timer-countdown');
@@ -32,6 +34,7 @@ var errorMessages = document.querySelectorAll('.error-message');
 var newActivityTitle = document.querySelector('.new-activity-title');
 var intentionActivityTitle = document.querySelector('.intention-activity-title');
 var activityCompletedTitle = document.querySelector('.activity-complete-title');
+var completionMessage = document.querySelector('.completion-message');
 
 
 
@@ -53,7 +56,8 @@ startActivityButton.addEventListener('click', startActivity);
 startTimerButton.addEventListener('click', getActivity);
 minutesInput.addEventListener('keydown', preventEInput);
 secondsInput.addEventListener('keydown', preventEInput);
-logActivityButton.addEventListener('click', createActivityLogs);
+logActivityButton.addEventListener('click', displayCompletedActivitySection);
+createNewActivityButton.addEventListener('click', displayNewActivitySection);
 
 //reusable functions
 function hideElement(element) {
@@ -115,8 +119,8 @@ function createActivity(category) {
 function displayCompleteMessage() {
   hideElement(startTimerButton);
   hideElement(timerCountdown);
-  showElement(logActivityButton);
-  showElement(activityCompletedTitle);
+  hideElement(intentionActivityTitle);
+  showElement(completionMessage);
 }
 
 function createActivityLogs() {
@@ -140,9 +144,11 @@ function createActivityLogs() {
   }
 }
 
-function displayActivityLogs() {
-  currentActivitySection.innerHTML = '';
-  currentActivitySection.innerHTML
+function displayCompletedActivitySection() {
+  hideElement(currentActivitySection);
+  showElement(completedActivitySection);
+  changeText(newActivityTitle, 'Completed Activity');
+  createActivityLogs();
 }
 
 function setTimer() {
@@ -154,10 +160,21 @@ function changeStartButtonStyle(intentionCategory) {
 }
 
 function displayCurrentActivity() {
+  hideElement(completionMessage);
   hideElement(newActivitySection);
   showElement(currentActivitySection);
+  showElement(startTimerButton);
+  showElement(timerCountdown);
+  showElement(intentionActivityTitle);
   changeText(newActivityTitle, 'Current Activity');
   setTimer();
   changeStartButtonStyle(category);
   changeText(intentionActivityTitle, accomplishInput.value);
+}
+
+function displayNewActivitySection() {
+  hideElement(completedActivitySection);
+  hideElement(currentActivitySection);
+  showElement(newActivitySection);
+  changeText(newActivityTitle, 'New Activity');
 }
