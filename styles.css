@@ -77,7 +77,8 @@ input {
 }
 
 .new-activity,
-.current-activity {
+.current-activity,
+.completed-activity-section {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -255,12 +256,28 @@ border: 3px solid #B3FD78;
   border: 3px solid #FD8078;
 }
 
-.log-activity-button {
+.log-activity-button,
+.create-new-activity-button {
   height: 40px;
   width: 250px;
   font-size: 15px;
   color: #46424D;
   font-family: "Montserrat";
+}
+
+/* completed activity */
+
+.completion-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.create-new-activity-button {
+  width: 350px;
+  margin-bottom: 240px;
 }
 
 /* activity cards */
@@ -311,7 +328,7 @@ border: 3px solid #B3FD78;
 .past-activity-card {
   background-color:#46424D;
   width: 90%;
-  height: 13%;
+  height: 80px;
   border-radius: 6px;
 }
 
