@@ -12,17 +12,30 @@ var buttonImages = document.querySelectorAll('.category-button-icons');
 var startActivityButton = document.querySelector('.start-activity-button');
 var startTimerButton = document.querySelector('.start-timer-button');
 var categoryButtons = document.querySelectorAll('.category-button-style');
+var logActivityButton = document.querySelector('.log-activity-button');
+var createNewActivityButton = document.querySelector('.create-new-activity-button');
+
 //inputs
 var accomplishInput = document.querySelector('.accomplish-input');
 var minutesInput = document.querySelector('.minutes-input');
 var secondsInput = document.querySelector('.seconds-input');
 var inputs = document.querySelectorAll('input');
+
+// sections
+var currentActivitySection = document.querySelector('.current-activity');
+var newActivitySection = document.querySelector('.new-activity');
+var pastActivitiesSection = document.querySelector('.past-activities');
+var activityCardSection = document.querySelector('.activity-card-section');
+var completedActivitySection = document.querySelector('.completed-activity-section');
+
+//titles
+var timerCountdown = document.querySelector('.timer-countdown');
 var errorMessages = document.querySelectorAll('.error-message');
 var newActivityTitle = document.querySelector('.new-activity-title');
-var timerCountdown = document.querySelector('.timer-countdown');
-var newActivitySection = document.querySelector('.new-activity');
-var currentActivitySection = document.querySelector('.current-activity');
 var intentionActivityTitle = document.querySelector('.intention-activity-title');
+var activityCompletedTitle = document.querySelector('.activity-complete-title');
+var completionMessage = document.querySelector('.completion-message');
+
 
 
 //function that adds class with new style
@@ -40,16 +53,30 @@ exerciseButton.addEventListener('click', function(event) {
 });
 
 startActivityButton.addEventListener('click', startActivity);
-
 startTimerButton.addEventListener('click', getActivity);
-
 minutesInput.addEventListener('keydown', preventEInput);
 secondsInput.addEventListener('keydown', preventEInput);
+logActivityButton.addEventListener('click', displayCompletedActivitySection);
+createNewActivityButton.addEventListener('click', displayNewActivitySection);
+
+//reusable functions
+function hideElement(element) {
+  element.classList.add('hidden');
+}
+
+function showElement(element) {
+  element.classList.remove('hidden');
+}
+
+function changeText(element, newText) {
+  element.innerText = `${newText}`;
+}
 
 function getActivity() {
   activities[activities.length - 1].startTimer();
 }
 
+//functions
 function hightlightButton(event) {
     category = event.target.innerText.toLowerCase();
     event.target.classList.add(`${category}-button-active`);
@@ -89,16 +116,37 @@ function createActivity(category) {
   activities.push(newActivity);
 }
 
-function hideElement(element) {
-  element.classList.add('hidden');
+function displayCompleteMessage() {
+  hideElement(startTimerButton);
+  hideElement(timerCountdown);
+  hideElement(intentionActivityTitle);
+  showElement(completionMessage);
 }
 
-function showElement(element) {
-  element.classList.remove('hidden');
+function createActivityLogs() {
+  activities[activities.length - 1].markComplete();
+  activityCardSection.innerHTML = '';
+  for (var i = 0; i < activities.length; i++)  {
+    if (activities[i].completed) {
+    activityCardSection.innerHTML += `
+    <article class="past-activity-card">
+      <div class="card-title-box">
+        <h5 class="card-category-title">${activities[i].category}</h5>
+        <p class="card-duration-title">${activities[i].minutes} MIN ${activities[i].seconds} SECONDS</p>
+        <p class="card-accomplish-title">${activities[i].description}</p>
+      </div>
+      <span class="card-color-indicator ${activities[i].category}-color-indicator">
+      </span>
+    </article>`
+    }
+  }
 }
 
-function changeText(element, newText) {
-  element.innerText = `${newText}`;
+function displayCompletedActivitySection() {
+  hideElement(currentActivitySection);
+  showElement(completedActivitySection);
+  changeText(newActivityTitle, 'Completed Activity');
+  createActivityLogs();
 }
 
 function setTimer() {
@@ -110,10 +158,21 @@ function changeStartButtonStyle(intentionCategory) {
 }
 
 function displayCurrentActivity() {
+  hideElement(completionMessage);
   hideElement(newActivitySection);
   showElement(currentActivitySection);
+  showElement(startTimerButton);
+  showElement(timerCountdown);
+  showElement(intentionActivityTitle);
   changeText(newActivityTitle, 'Current Activity');
   setTimer();
   changeStartButtonStyle(category);
   changeText(intentionActivityTitle, accomplishInput.value);
+}
+
+function displayNewActivitySection() {
+  hideElement(completedActivitySection);
+  hideElement(currentActivitySection);
+  showElement(newActivitySection);
+  changeText(newActivityTitle, 'New Activity');
 }
