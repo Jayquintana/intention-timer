@@ -28,7 +28,7 @@ class Activity {
         time--;
         if (!parseInt(minutes) && !parseInt(seconds)) {
           stopTimer(intervalID);
-          displayCompleteMessage()
+          displayCompleteMessage();
         }
       }
 
