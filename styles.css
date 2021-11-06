@@ -207,8 +207,9 @@ input {
   display: flex;
   align-content: space-between;
   text-align: center;
+  line-height: 2;
   box-sizing: border-box;
-  padding: 5% 20% 0% 20%;
+  padding: 5% 15% 0% 15%;
 }
 
 /* current activity section / timer */
@@ -285,16 +286,10 @@ border: 3px solid #B3FD78;
 .activity-card-section {
   display: flex;
   flex-direction: column;
+  align-items: center;
   height: 100%;
   width: 100%;
   overflow-y: auto;
-}
-
-.activity-card-box {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 90%;
 }
 
 .past-activity-card {
