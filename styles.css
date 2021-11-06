@@ -32,11 +32,15 @@ header {
 }
 
 main {
-  height: inherit;
+  height: 90%;
   display: flex;
 }
 
 form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   height: 40%;
   width: 100%;
 }
@@ -48,11 +52,16 @@ input {
   border-bottom: 2px solid  #CBC9CF;
   margin-top: 5%;
   text-align: justify;
+  font-family: "Montserrat";
+  font-size: 20px;
+  font-weight: 400;
 }
 
 /* Header / title */
 .page-title {
   font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
   margin: 0.5% auto;
 }
 
@@ -83,11 +92,10 @@ input {
   flex-direction: column;
   align-items: center;
   background-color: #46424D;
-  height: 80%;
+  height: 85%;
   width: 93%;
-  margin-bottom: 5%;
   border-radius: 5px;
-  padding: 0px 80px;
+  padding: 15px 90px;
   box-sizing: border-box;
   justify-content: space-around;
 }
@@ -95,10 +103,13 @@ input {
 .form-text-style {
   font-family: "Montserrat", sans-serif;
   color: #FFF;
-  font-size: 16px;
+  font-size: 19px;
   align-self: flex-start;
   width: 100%;
-  margin-bottom: 20px;
+}
+
+.category-buttons-header {
+  margin-bottom: 20px
 }
 
 /* form buttons */
@@ -120,7 +131,8 @@ input {
   border: 2px solid #FFF;
   border-radius: 5px;
   height: 70px;
-  width: 181px;
+  width: 175px;
+  cursor: pointer;
 }
 
 .category-button-icons {
@@ -132,7 +144,8 @@ input {
   color: #EFB7EC;
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
-  margin-top: 15px;
+  margin-top: 10px;
+  align-self: flex-start;
 }
 
 .error-image {
@@ -166,23 +179,31 @@ input {
 /* form inputs/labels */
 .accomplish-input {
   width: 100%;
+  cursor: pointer;
 }
 
 .seconds-input,
 .minutes-input {
   width: 100%;
+  cursor: pointer;
 }
 
 .minutes-seconds-container {
   height: 20%;
-  margin: 10% auto;
+  width: 100%;
+  margin: 5% auto;
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
+}
+
+.accomplish-input-label {
+  width: 100%;
 }
 
 .minutes-input-label,
 .seconds-input-label {
-  width: 40%;
+  width: 42%;
 }
 
 /* Past activitys section / right side */
@@ -195,6 +216,7 @@ input {
   color: #CBC9CF;
   font-family: "Montserrat", sans-serif;
   width: 25%;
+  height: 102%
 }
 
 .past-activities-title {
@@ -243,6 +265,7 @@ input {
   font-family: "Montserrat";
   color: #FFF;
   font-size: 25px;
+  cursor: pointer;
 }
 
 .start-study-timer {
@@ -257,6 +280,7 @@ border: 3px solid #B3FD78;
   border: 3px solid #FD8078;
 }
 
+.start-activity-button,
 .log-activity-button,
 .create-new-activity-button {
   height: 40px;
@@ -264,6 +288,12 @@ border: 3px solid #B3FD78;
   font-size: 15px;
   color: #46424D;
   font-family: "Montserrat";
+  cursor: pointer;
+}
+
+.start-activity-button {
+  width: 200px;
+  align-self: flex-end;
 }
 
 /* completed activity */
