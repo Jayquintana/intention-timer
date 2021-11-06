@@ -22,14 +22,16 @@ var inputs = document.querySelectorAll('input');
 // sections
 var currentActivitySection = document.querySelector('.current-activity');
 var newActivitySection = document.querySelector('.new-activity');
-var pastActivitiesSection = document.querySelector('.past-activities')
+var pastActivitiesSection = document.querySelector('.past-activities');
+var activityCardSection = document.querySelector('.activity-card-section')
+
 
 //titles
 var timerCountdown = document.querySelector('.timer-countdown');
 var errorMessages = document.querySelectorAll('.error-message');
 var newActivityTitle = document.querySelector('.new-activity-title');
 var intentionActivityTitle = document.querySelector('.intention-activity-title');
-var activityCompletedTitle = document.querySelector('.activity-complete-title')
+var activityCompletedTitle = document.querySelector('.activity-complete-title');
 
 
 
@@ -48,12 +50,10 @@ exerciseButton.addEventListener('click', function(event) {
 });
 
 startActivityButton.addEventListener('click', startActivity);
-
 startTimerButton.addEventListener('click', getActivity);
-
 minutesInput.addEventListener('keydown', preventEInput);
 secondsInput.addEventListener('keydown', preventEInput);
-// logActivityButton.addEventListener('click', )
+logActivityButton.addEventListener('click', createActivityLogs);
 
 //reusable functions
 function hideElement(element) {
@@ -120,10 +120,29 @@ function displayCompleteMessage() {
 }
 
 function createActivityLogs() {
-  pastActivitiesSection.innerHTML = '';
+  activities[activities.length - 1].markComplete();
+  activityCardSection.innerHTML = '';
   for (var i = 0; i < activities.length; i++)  {
-    pastActivitiesSection.innerHTML += ``
+    if (activities[i].completed) {
+    activityCardSection.innerHTML += `
+    <div class="activity-card-box">
+      <article class="past-activity-card">
+        <div class="card-title-box">
+          <h5 class="card-category-title">${activities[i].category}</h5>
+          <p class="card-duration-title">${activities[i].minutes} MIN ${activities[i].seconds} SECONDS</p>
+          <p class="card-accomplish-title">${activities[i].description}</p>
+        </div>
+        <span class="card-color-indicator ${activities[i].category}-color-indicator">
+        </span>
+      </article>
+    </div>`
+    }
   }
+}
+
+function displayActivityLogs() {
+  currentActivitySection.innerHTML = '';
+  currentActivitySection.innerHTML
 }
 
 function setTimer() {
