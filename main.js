@@ -93,9 +93,9 @@ function categoryButtonReset(event) {
 
 function hightlightButton(event) {
   categoryButtonReset()
-  category = event.target.innerText.toLowerCase();
-  event.target.classList.add(`${category}-button-active`);
-  event.target.children[0].attributes[1].value = `assets/${category}-active.svg`;
+  category = event.target.innerText//.toLowerCase();
+  event.target.classList.add(`${category.toLowerCase()}-button-active`);
+  event.target.children[0].attributes[1].value = `assets/${category.toLowerCase()}-active.svg`;
 }
 
 function preventEInput(event) {
@@ -150,7 +150,7 @@ function createActivityLogs() {
         <p class="card-duration-title">${activities[i].minutes} MIN ${activities[i].seconds} SECONDS</p>
         <p class="card-accomplish-title">${activities[i].description}</p>
       </div>
-      <span class="card-color-indicator ${activities[i].category}-color-indicator">
+      <span class="card-color-indicator ${activities[i].category.toLowerCase()}-color-indicator">
       </span>
     </article>`
     }
