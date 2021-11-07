@@ -93,7 +93,7 @@ function categoryButtonReset(event) {
 
 function hightlightButton(event) {
   categoryButtonReset()
-  category = event.target.innerText//.toLowerCase();
+  category = event.target.innerText;
   event.target.classList.add(`${category.toLowerCase()}-button-active`);
   event.target.children[0].attributes[1].value = `assets/${category.toLowerCase()}-active.svg`;
 }
