@@ -4,6 +4,11 @@ var invalidKeys = ['-', '+', 'e', 'E', '.'];
 var activities = [];
 // querySelectors
 
+//images
+var studyIcon = document.querySelectorAll('.study-button > img')
+var meditateIcon = document.querySelectorAll('.meditate-button > img')
+var exerciseIcon = document.querySelectorAll('.exercise-button > img')
+
 //buttons
 var studyButton = document.querySelector('.study-button');
 var meditateButton = document.querySelector('.meditate-button');
@@ -77,10 +82,20 @@ function getActivity() {
 }
 
 //functions
+function categoryButtonReset(event) {
+  studyButton.classList.remove('study-button-active')
+  exerciseButton.classList.remove('exercise-button-active')
+  meditateButton.classList.remove('meditate-button-active')
+  studyIcon[0].attributes[1].nodeValue = 'assets/study.svg'
+  meditateIcon[0].attributes[1].nodeValue = 'assets/meditate.svg'
+  exerciseIcon[0].attributes[1].nodeValue = 'assets/exercise.svg'
+}
+
 function hightlightButton(event) {
-    category = event.target.innerText.toLowerCase();
-    event.target.classList.add(`${category}-button-active`);
-    event.target.children[0].attributes[1].value = `assets/${category}-active.svg`;
+  categoryButtonReset()
+  category = event.target.innerText.toLowerCase();
+  event.target.classList.add(`${category}-button-active`);
+  event.target.children[0].attributes[1].value = `assets/${category}-active.svg`;
 }
 
 function preventEInput(event) {
