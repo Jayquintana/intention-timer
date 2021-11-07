@@ -4,10 +4,10 @@ var invalidKeys = ['-', '+', 'e', 'E', '.'];
 var activities = [];
 // querySelectors
 
-//images
-var studyIcon = document.querySelectorAll('.study-button > img')
-var meditateIcon = document.querySelectorAll('.meditate-button > img')
-var exerciseIcon = document.querySelectorAll('.exercise-button > img')
+//icons
+var studyIcon = document.querySelectorAll('.study-button > img');
+var meditateIcon = document.querySelectorAll('.meditate-button > img');
+var exerciseIcon = document.querySelectorAll('.exercise-button > img');
 
 //buttons
 var studyButton = document.querySelector('.study-button');
@@ -83,12 +83,12 @@ function getActivity() {
 
 //functions
 function categoryButtonReset(event) {
-  studyButton.classList.remove('study-button-active')
-  exerciseButton.classList.remove('exercise-button-active')
-  meditateButton.classList.remove('meditate-button-active')
-  studyIcon[0].attributes[1].nodeValue = 'assets/study.svg'
-  meditateIcon[0].attributes[1].nodeValue = 'assets/meditate.svg'
-  exerciseIcon[0].attributes[1].nodeValue = 'assets/exercise.svg'
+  studyButton.classList.remove('study-button-active');
+  exerciseButton.classList.remove('exercise-button-active');
+  meditateButton.classList.remove('meditate-button-active');
+  studyIcon[0].attributes[1].nodeValue = 'assets/study.svg';
+  meditateIcon[0].attributes[1].nodeValue = 'assets/meditate.svg';
+  exerciseIcon[0].attributes[1].nodeValue = 'assets/exercise.svg';
 }
 
 function hightlightButton(event) {
