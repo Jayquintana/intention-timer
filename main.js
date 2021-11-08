@@ -59,8 +59,8 @@ exerciseButton.addEventListener('click', function(event) {
 
 startActivityButton.addEventListener('click', startActivity);
 startTimerButton.addEventListener('click', getActivity);
-minutesInput.addEventListener('keydown', preventEInput);
-secondsInput.addEventListener('keydown', preventEInput);
+minutesInput.addEventListener('keydown', preventInvalidKeys);
+secondsInput.addEventListener('keydown', preventInvalidKeys);
 logActivityButton.addEventListener('click', displayCompletedActivitySection);
 createNewActivityButton.addEventListener('click', displayNewActivitySection);
 
@@ -98,7 +98,7 @@ function hightlightButton(event) {
   event.target.children[0].attributes[1].value = `assets/${category.toLowerCase()}-active.svg`;
 }
 
-function preventEInput(event) {
+function preventInvalidKeys(event) {
   if (invalidKeys.includes(event.key)) {
     event.preventDefault();
   }
@@ -165,11 +165,19 @@ function displayCompletedActivitySection() {
 }
 
 function setTimer() {
+  if (minutesInput.value.length < 2) {
+    minutesInput.value = `0${minutesInput.value}`;
+  }
+  if (secondsInput.value.length < 2) {
+    secondsInput.value = `0${secondsInput.value}`;
+  }
   timerCountdown.innerText = `${minutesInput.value}:${secondsInput.value}`;
 }
 
+
 function changeStartButtonStyle(intentionCategory) {
-  startTimerButton.classList.add(`start-${intentionCategory}-timer`);
+  startTimerButton.classList.remove('start-exercise-timer', 'start-meditate-timer', 'start-study-timer');
+  startTimerButton.classList.add(`start-${intentionCategory.toLowerCase()}-timer`);
 }
 
 function displayCurrentActivity() {
