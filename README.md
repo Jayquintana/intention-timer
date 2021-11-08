@@ -1,5 +1,5 @@
 # Intention Timer
-![App Demo]()
+![App Demo](https://github.com/ectweitmann/intention-timer/blob/main/assets/readme.gif)
 
 The purpose of this website is two-fold:
 1. To allow users to set goals for their health and productivity tied to an amount of time.
