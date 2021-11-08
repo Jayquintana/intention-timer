@@ -204,7 +204,7 @@ function displayNewActivitySection() {
   hideElement(currentActivitySection);
   showElement(newActivitySection);
   changeText(newActivityTitle, 'New Activity');
-  categoryButtonReset()
+  categoryButtonReset();
   clearInputValues();
 
 
