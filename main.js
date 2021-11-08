@@ -59,8 +59,8 @@ exerciseButton.addEventListener('click', function(event) {
 
 startActivityButton.addEventListener('click', startActivity);
 startTimerButton.addEventListener('click', getActivity);
-minutesInput.addEventListener('keydown', preventEInput);
-secondsInput.addEventListener('keydown', preventEInput);
+minutesInput.addEventListener('keydown', preventInvalidKeys);
+secondsInput.addEventListener('keydown', preventInvalidKeys);
 logActivityButton.addEventListener('click', displayCompletedActivitySection);
 createNewActivityButton.addEventListener('click', displayNewActivitySection);
 
@@ -98,7 +98,7 @@ function hightlightButton(event) {
   event.target.children[0].attributes[1].value = `assets/${category.toLowerCase()}-active.svg`;
 }
 
-function preventEInput(event) {
+function preventInvalidKeys(event) {
   if (invalidKeys.includes(event.key)) {
     event.preventDefault();
   }
