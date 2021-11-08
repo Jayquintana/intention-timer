@@ -193,9 +193,19 @@ function displayCurrentActivity() {
   changeText(intentionActivityTitle, accomplishInput.value);
 }
 
+function clearInputValues() {
+  accomplishInput.value = '';
+  minutesInput.value = '';
+  secondsInput.value = '';
+}
+
 function displayNewActivitySection() {
   hideElement(completedActivitySection);
   hideElement(currentActivitySection);
   showElement(newActivitySection);
   changeText(newActivityTitle, 'New Activity');
+  categoryButtonReset();
+  clearInputValues();
+
+
 }
