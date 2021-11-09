@@ -41,7 +41,7 @@ var newActivityTitle = document.querySelector('.new-activity-title');
 var intentionActivityTitle = document.querySelector('.intention-activity-title');
 var activityCompletedTitle = document.querySelector('.activity-complete-title');
 var completionMessage = document.querySelector('.completion-message');
-
+var noActivityMessage = document.querySelector('.no-activity-message')
 
 
 //function that adds class with new style
@@ -146,6 +146,7 @@ function loadActivityLog() {
 }
 
 function renderActivityLog(activity) {
+    hideElement(noActivityMessage);
     activityCardSection.innerHTML += `
     <article class="past-activity-card">
       <div class="card-title-box">
