@@ -2,6 +2,7 @@
 var category;
 var invalidKeys = ['-', '+', 'e', 'E', '.'];
 var activities = [];
+var activityIds = [];
 // querySelectors
 
 //icons
@@ -44,6 +45,8 @@ var completionMessage = document.querySelector('.completion-message');
 
 
 //function that adds class with new style
+
+window.addEventListener('load', loadActivityLog);
 
 studyButton.addEventListener('click', function(event) {
   hightlightButton(event);
@@ -129,6 +132,30 @@ function startActivity() {
 function createActivity(category) {
   var newActivity = new Activity(category, accomplishInput.value, minutesInput.value, secondsInput.value);
   activities.push(newActivity);
+  activityIds.push(newActivity.id);
+  localStorage.setItem('ids', JSON.stringify(activityIds));
+  newActivity.saveToStorage(newActivity.id, JSON.stringify(newActivity));
+}
+
+function loadActivityLog() {
+  var activityIds = JSON.parse(localStorage.getItem('ids'));
+  for (var i = 0; i < activityIds.length; i++) {
+    var activity = JSON.parse(localStorage.getItem(activityIds[i]));
+    renderActivityLog(activity);
+  }
+}
+
+function renderActivityLog(activity) {
+    activityCardSection.innerHTML += `
+    <article class="past-activity-card">
+      <div class="card-title-box">
+        <h5 class="card-category-title">${activity.category}</h5>
+        <p class="card-duration-title">${activity.minutes} MIN ${activity.seconds} SECONDS</p>
+        <p class="card-accomplish-title">${activity.description}</p>
+      </div>
+      <span class="card-color-indicator ${activity.category.toLowerCase()}-color-indicator">
+      </span>
+    </article>`
 }
 
 function displayCompleteMessage() {
@@ -141,20 +168,20 @@ function displayCompleteMessage() {
 function createActivityLogs() {
   activities[activities.length - 1].markComplete();
   activityCardSection.innerHTML = '';
-  for (var i = 0; i < activities.length; i++)  {
-    if (activities[i].completed) {
-    activityCardSection.innerHTML += `
-    <article class="past-activity-card">
-      <div class="card-title-box">
-        <h5 class="card-category-title">${activities[i].category}</h5>
-        <p class="card-duration-title">${activities[i].minutes} MIN ${activities[i].seconds} SECONDS</p>
-        <p class="card-accomplish-title">${activities[i].description}</p>
-      </div>
-      <span class="card-color-indicator ${activities[i].category.toLowerCase()}-color-indicator">
-      </span>
-    </article>`
-    }
-  }
+  loadActivityLog();
+  // for (var i = 0; i < activities.length; i++)  {
+  //   if (activities[i].completed) {
+  //   activityCardSection.innerHTML += `
+  //   <article class="past-activity-card">
+  //     <div class="card-title-box">
+  //       <h5 class="card-category-title">${activities[i].category}</h5>
+  //       <p class="card-duration-title">${activities[i].minutes} MIN ${activities[i].seconds} SECONDS</p>
+  //       <p class="card-accomplish-title">${activities[i].description}</p>
+  //     </div>
+  //     <span class="card-color-indicator ${activities[i].category.toLowerCase()}-color-indicator">
+  //     </span>
+  //   </article>`
+  //   }
 }
 
 function displayCompletedActivitySection() {
