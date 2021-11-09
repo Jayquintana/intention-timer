@@ -41,7 +41,7 @@ class Activity {
       this.completed = true;
     }
 
-    saveToStorage() {
-
+    saveToStorage(id, activity) {
+      localStorage.setItem(id, activity);
     }
 }
