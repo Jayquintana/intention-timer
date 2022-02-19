@@ -1,3 +1,6 @@
+### Try It Out
+[Our website](https://ectweitmann.github.io/intention-timer/)
+
 # Intention Timer
 ![App Demo](https://github.com/ectweitmann/intention-timer/blob/main/assets/readme.gif)
 
@@ -9,9 +12,6 @@ The purpose of this website is two-fold:
 ## Description
 
 Our application allows users to create an activity or intention. The user decides how much time they will spend on each activity and is provided with a countdown timer that will alert them when their intention or goal is complete. When the timer is done the user has the ability to log the activity and keep track of past accomplishments.
-
-### Try It Out
-[Our website](https://ectweitmann.github.io/intention-timer/)
 
 ### Executing program
 
